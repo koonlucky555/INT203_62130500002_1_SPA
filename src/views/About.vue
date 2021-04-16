@@ -5,8 +5,8 @@
         >Home</router-link
       >
       |
-      <router-link to="/about" class="text-black hover:text-gray-500 text-xl"
-        >About</router-link
+      <router-link to="/about" class="text-black hover:text-gray-500  text-xl"
+        >About Me</router-link
       >
     </div>
 
