@@ -1,8 +1,22 @@
 <template>
   <div class="home">
     <div id="nav" class="absolute w-full p-12">
-      <router-link to="/" class="text-white hover:text-black text-xl">Home</router-link> |
-      <router-link to="/about" class="text-white hover:text-black text-xl">About Me</router-link>
+      <router-link to="/" class="text-white hover:text-black text-xl"
+        >Home</router-link
+      >
+      <span class="text-white"> | </span>
+      <router-link to="/about" class="text-white hover:text-black text-xl"
+        >About Me</router-link
+      >
+      <span class="text-white"> | </span
+      ><router-link to="/gameplay" class="text-white hover:text-black text-xl"
+        >GamePlay</router-link
+      >
+
+      <span class="text-white"> | </span>
+      <router-link to="/comment" class="text-white hover:text-black text-xl"
+        >commentk</router-link
+      >
     </div>
     <div
       class="w-full h-screen bg-center bg-no-repeat bg-cover"
@@ -16,7 +30,9 @@
         <div class="mx-4 text-center text-white">
           <h1 class="font-bold text-6xl mb-4">Welcome to Lucky KL !</h1>
           <h2 class="font-bold text-3xl mb-8">I'm live streamer</h2>
-          <h3 class="font-bold text-2xl mb-12">Click below to see about my gameplay</h3>
+          <h3 class="font-bold text-2xl mb-12">
+            Click below to see about my gameplay
+          </h3>
           <div>
             <a
               href="/gameplay"
@@ -32,8 +48,6 @@
 </template>
 
 <style scoped>
-
-
 </style>
 <script>
 // @ is an alias to /src
