@@ -1,20 +1,15 @@
 <template>
-     <div v-for="comment in comments" :key="comment.id">
-      <div class="bg-black pt-32 grid grid-cols-3 p-32 justify-items-center">
-        <div class="mb-20 mr-20 rounded overflow-hidden shadow-lg">
-          <div class="bg-white px-32 py-16">
-            <p class="text-black text-lg"><b>{{comment.name}}</b></p>
-            <p class="text-black text-xl"><b>{{comment.email}}</b></p>
-            <p class="text-black text-md"><b>{{comment.message}}</b></p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <single-comment v-for="comment in comments" :key="comment.id" :comment="comment"/>
+  
 </template>
 
 <script>
 import axios from "axios";
+import SingleComment from "../components/SingleComment.vue";
 export default {
+  components: {
+    SingleComment,
+  },
   data() {
     return {
       comments: [],
