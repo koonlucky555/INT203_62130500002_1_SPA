@@ -24,7 +24,13 @@ const routes = [
     path: '/comment',
     name: 'Comment',
     component: () => import('../views/Comment.vue')
+  },
+  {
+    path: '/comment/:id',
+    name: 'Modal',
+    props: true
   }
+
 ]
 
 const router = createRouter({
