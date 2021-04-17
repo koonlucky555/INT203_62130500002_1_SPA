@@ -2,7 +2,7 @@
   
   <div class="w-full bg-gray-900 h-screen" id="tour">
     <based-navbar />
-    <p class="text-4xl flex justify-center pt-16 text-white uppercase">
+    <p class="text-4xl flex justify-center pt-28 text-white uppercase">
       All comment
     </p>
     <p class="w3-center text-white pt-4">

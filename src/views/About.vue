@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100 w-full">
+  <div class="bg-gray-100 w-full h-screen">
     <based-navbar />
     <div class="about w-full grid grid-cols-3 pt-16">
       <div
