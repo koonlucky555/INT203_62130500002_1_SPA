@@ -93,7 +93,6 @@
         </div>
       </div>
     </div>
-
     <!-- Comment -->
     <div
       class="w3-container w3-content -mt-32"
