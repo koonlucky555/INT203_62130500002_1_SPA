@@ -1,6 +1,9 @@
 <template>
-  <single-comment v-for="comment in comments" :key="comment.id" :comment="comment"/>
-  
+  <single-comment
+    v-for="comment in comments"
+    :key="comment.id"
+    :comment="comment"
+  />
 </template>
 
 <script>
@@ -13,6 +16,11 @@ export default {
   data() {
     return {
       comments: [],
+      newComment: {
+          name: "",
+          email: "",
+          message: ""
+      }
     };
   },
   mounted() {
