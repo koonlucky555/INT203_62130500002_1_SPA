@@ -1,6 +1,7 @@
 <template>
+<based-navbar />
   <div class="h-screen w-full bg-gray-100">
-    <p class="text-4xl pt-20 flex justify-center text-black uppercase">
+    <p class="text-4xl pt-36 flex justify-center text-black uppercase">
       Edit & Delete
     </p>
     <div class="flex justify-center pt-6">
@@ -38,13 +39,13 @@
             name="Message"
           />
           <button
-            class="w3-button w3-black w3-section w3-right"
+            class="w3-button w3-black w3-section w3-left"
             @click="editComment"
           >
             Edit
           </button>
           <button
-            class="w3-button w3-black w3-section w3-righ"
+            class="w3-button bg-red-600 text-white hover:bg-gray-400 hover:text-black w3-section w3-right "
             @click="deleteComment"
           >
             Delete</button
@@ -56,6 +57,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: "Modal",
   props: ["id"],
@@ -64,46 +66,54 @@ export default {
       name: "",
       email: "",
       message: "",
-      url: "http://localhost:8081/comment/" + this.id,
-      checkComment: [],
+      url: "http://localhost:5000/formdata/" + this.id,
+      checkComment: {},
       readyToConfirm: false,
     };
   },
   methods: {
+
     backToPageComment() {
       this.$router.push("/comment");
     },
-    async editComment() {
-      if (this.readyToConfirm) {
-        let editData = {
-          name: this.name,
+
+    editComment(){
+      
+      axios.put(this.url,{
+        name: this.name,
           email: this.email,
-          meassage: this.message,
-        };
-        await fetch(this.url, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(editData),
-        });
-        this.$router.push("/comment");
+          message: this.message,
+      }).then(res => {
+            console.log(res)
+            this.$router.push("/comment");
+      })
+
+    },
+
+     deleteComment() {
+        axios.delete(this.url).then(res => {
+            console.log(res)
+            this.$router.push("/comment");
+      })
+      
+    },
+    async getData() {
+      try {
+        const response = await fetch(this.url);
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.log(error);
       }
     },
-    async deleteComment() {
-      if (this.readyToConfirm) {
-        await fetch(this.url, {
-          method: "DELETE",
-        });
-        this.$router.push("/comment");
-      }
-    },
-    async mounted() {
-      const res = await fetch(this.url);
-      const data = await res.json();
-      this.checkComment = data;
-      this.name = data.name;
-      this.email = data.email;
-      this.message = data.message;
-    },
+
   },
+  async created(){
+    this.checkComment = await this.getData();
+      this.name = this.checkComment.name;
+      this.email = this.checkComment.email;
+      this.message = this.checkComment.message;
+    console.log(this.checkComment);
+  }
 };
 </script>
