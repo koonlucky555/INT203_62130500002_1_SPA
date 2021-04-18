@@ -3,7 +3,7 @@
     <based-navbar />
 
     <!-- Gameplay -->
-    <p class="text-4xl pt-20 flex justify-center text-black uppercase">
+    <p class="text-4xl pt-28 flex justify-center text-black uppercase">
       My GamePlay
     </p>
     <p class="w3-center text-black pt-4">

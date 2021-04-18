@@ -1,6 +1,7 @@
+
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-
+import Modal from '../components/Modal.vue'
 const routes = [
   {
     path: '/',
@@ -28,6 +29,7 @@ const routes = [
   {
     path: '/comment/:id',
     name: 'Modal',
+    component:Modal,
     props: true
   }
 
